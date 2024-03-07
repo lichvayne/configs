@@ -1,0 +1,12 @@
+server:
+  port: 8083
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL}
+    password: ${DATABASE_PASSWORD}
+    username: ${DATABASE_USERNAME}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
