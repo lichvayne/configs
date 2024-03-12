@@ -12,7 +12,3 @@ spring:
   #        uri: lb://auth-service
   #        predicates: Path=/auth-service/**
   #        filters: StripPrefix=1
-
-eureka:
-  client:
-    register-with-eureka: false
