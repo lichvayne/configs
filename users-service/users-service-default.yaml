@@ -6,12 +6,12 @@ spring:
     url: ${DATABASE_URL}
     password: ${DATABASE_PASSWORD}
     username: ${DATABASE_USERNAME}
-    security:
-      oauth2:
-        resourceserver:
-          jwt:
-            jwk-set-uri: http://localhost:9000/oauth2/jwks
-            issuer-uri: http://localhost:9000
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+          issuer-uri: http://localhost:9000
 
   jpa:
     hibernate:
