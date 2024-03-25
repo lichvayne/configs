@@ -4,14 +4,13 @@ server:
 spring:
   cloud:
     gateway:
-      routes[0]:
-        uri: http://localhost:8083
-        predicates: Path=/users-service/**
-        filters: StripPrefix=1
-      routes[1]:
-        uri: lb://auth-service
-        predicates: Path=/auth-service/**
-        filters: StripPrefix=1
+      routes:
+        - id: users-service
+          uri: lb://USERS-SERVICE
+          predicates:
+            - Path=/users-service/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
