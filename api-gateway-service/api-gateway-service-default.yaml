@@ -1,23 +1,20 @@
 server:
   port: 8888
 
-
 spring:
   cloud:
     gateway:
-      routes:
-        - id: users-service
-          uri: lb://USERS-SERVICE
-          predicates: Path=/users-service/**
-          filters: StripPrefix=1
-        - id: auth-service
-          uri: lb://auth-service
-          predicates: Path=/auth-service/**
-          filters: StripPrefix=1
+      routes[0]:
+        uri: lb://USERS-SERVICE
+        predicates: Path=/users-service/**
+        filters: StripPrefix=1
+      routes[1]:
+        uri: lb://auth-service
+        predicates: Path=/auth-service/**
+        filters: StripPrefix=1
 
 eureka:
   client:
     service-url:
       defaultZone: ${SERVICE_DISCOVERY_URL:http://localhost:8761/eureka}
     register-with-eureka: true
-
