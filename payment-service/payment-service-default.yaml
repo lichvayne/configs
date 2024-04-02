@@ -10,6 +10,15 @@ spring:
   jpa:
     hibernate.ddl-auto: update
     show-sql: true
+  kafka:
+    consumer:
+      bootstrap-servers: http://kafka:9092
+      group-id: users_group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
 
 eureka:
   client:
